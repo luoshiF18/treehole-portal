@@ -5,11 +5,11 @@ import second from '@/module/testDemo/page/second.vue';
 export default [{
   path: '/test',
   component: Home,
-   // name: '测试',  //菜单名称
+  // name: '测试',  //菜单名称
   hidden: false,
-  children:[
-    {path:'/test/page/first',component: first,hidden:false},
-    {path:'/test/page/second',component: second,hidden:false},
+  children: [
+    {path: '/test/page/first', component: first, hidden: false},
+    {path: '/test/page/second', component: second, hidden: false},
   ]
 }
 ]

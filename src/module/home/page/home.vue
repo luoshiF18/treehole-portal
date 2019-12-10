@@ -16,6 +16,8 @@
 
          <el-menu-item index="/index">首页</el-menu-item>
 
+          <el-menu-item index="/scale/page/scale_list">心理测试</el-menu-item>
+
           <el-submenu index="8">
             <template slot="title"><span>测试</span></template>
             <el-menu-item-group>
@@ -78,7 +80,6 @@
 </template>
 
 <script>
-  import * as cmsApi from '../../scale/api/scaleApi'
   export default {
     name: "index",
     data() {

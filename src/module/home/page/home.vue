@@ -42,6 +42,7 @@
             <el-button  v-if="logined == false" type="text">
               <span style="color:#409EFF">|</span>
               注册</el-button>
+            <el-button   @click="system" type="text">后台管理入口</el-button>
           </div>
 
 
@@ -81,6 +82,9 @@
         //处理登录,跳转到登录页面
         showlogin:function(){
             this.$router.push('/base/components/loginform');
+        },
+        system:function(){
+            window.location = "http://ucenter.treehole.com/#/login"
         },
         refresh_user:function(){
             //从sessionStorage中取出当前用户

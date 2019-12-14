@@ -14,7 +14,7 @@
             <img src="../../../assets/logo.jpg" alt="">
           </div>
 
-         <el-menu-item index="/index">首页</el-menu-item>
+          <el-menu-item index="/index">首页</el-menu-item>
 
           <el-menu-item index="/scale/page/scale_list">心理测试</el-menu-item>
 
@@ -26,10 +26,12 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
 
-<!--          <el-menu-item index="/archive">评测</el-menu-item>-->
-<!--          <el-menu-item index="/cross">跨域1</el-menu-item>-->
-<!--          <el-menu-item index="/crossTwo">跨域2</el-menu-item>-->
+
+          <!--          <el-menu-item index="/archive">评测</el-menu-item>-->
+          <!--          <el-menu-item index="/cross">跨域1</el-menu-item>-->
+          <!--          <el-menu-item index="/crossTwo">跨域2</el-menu-item>-->
 
           <!--            <el-submenu index="5">-->
           <!--              <template slot="title">我的工作台</template>-->
@@ -61,7 +63,6 @@
             <span style="color:#409EFF">|</span>
             <el-button type="text">注册</el-button>
           </div>
-
 
 
           <!--时间-->
@@ -120,17 +121,17 @@
 </script>
 
 <style scoped lang="less">
-  .dv-index{
+  .dv-index {
     .el-header {
       padding: 0;
-      .el-menu-demo{
+      .el-menu-demo {
         padding-left: 28vw;
-        .logo img{
+        .logo img {
           width: 123px;
           margin: 0 8px 0 12px;
           float: left;
         }
-        .dv-right{
+        .dv-right {
           font-size: 16px;
           float: left;
           margin: 10px;

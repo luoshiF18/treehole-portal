@@ -101,13 +101,22 @@
         //如果为2是普通类型
         if (this.scaleType == 2) {
           evApi.startTestFirst(this.scaleId).then((res) => {
-            this.normal_type.nextQuestionId = res.questionVO2.nextQuestionId;
-            this.normal_type.questionSort = res.questionVO2.questionSort;
-            this.question_option.question = res.questionVO2.question;
-            this.question_option.optionVOS = res.questionVO2.optionVOS;
-            this.sortByKey(this.question_option.optionVOS, 'sort');
-            /*            console.log(this.question_option.question)
-                        console.log(this.question_option.optionVOS)*/
+            if (res.success) {
+              this.normal_type.nextQuestionId = res.questionVO2.nextQuestionId;
+              this.normal_type.questionSort = res.questionVO2.questionSort;
+              this.question_option.question = res.questionVO2.question;
+              this.question_option.optionVOS = res.questionVO2.optionVOS;
+              this.sortByKey(this.question_option.optionVOS, 'sort');
+              /*            console.log(this.question_option.question)
+                          console.log(this.question_option.optionVOS)*/
+            } else {
+              //如果做过题就送回原处
+              this.$message.error(res.message);
+              this.$router.push({
+                path: '/scale/page/scale_list'
+              });
+            }
+
           });
         } else {
           //如果为1是多选类型

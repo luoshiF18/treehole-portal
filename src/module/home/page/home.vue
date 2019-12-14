@@ -1,5 +1,13 @@
 <template>
+
   <div class="dv-index">
+    <ul class="additional-features" data-t="" data-tt="">
+      <li class="kf">
+        <!-- <div class="additional-icon icon1"></div>-->
+        <a><p  href="" onclick="window.open('http://ucenter.treehole.com/#/imclient','_blank',' scrollbar = 0,resizable=0,width=870,height=600,top=220,left=430')">客服</p></a>
+        <!--<p>客服</p>-->
+      </li>
+    </ul>
     <el-container style="height: 100vh;">
       <el-header>
         <el-menu
@@ -26,40 +34,15 @@
             </el-menu-item-group>
           </el-submenu>
 
-
-<!--          <el-menu-item index="/archive">评测</el-menu-item>-->
-<!--          <el-menu-item index="/cross">跨域1</el-menu-item>-->
-<!--          <el-menu-item index="/crossTwo">跨域2</el-menu-item>-->
-
-          <!--            <el-submenu index="5">-->
-          <!--              <template slot="title">我的工作台</template>-->
-          <!--              <el-menu-item index="5-1">选项1</el-menu-item>-->
-          <!--              <el-menu-item index="5-2">选项2</el-menu-item>-->
-          <!--              <el-menu-item index="5-3">选项3</el-menu-item>-->
-          <!--            </el-submenu>-->
-
-          <!--            <el-submenu index="6">-->
-          <!--              <template slot="title">我的工作台</template>-->
-          <!--              <el-menu-item index="6-1">选项6-1</el-menu-item>-->
-          <!--              <el-menu-item index="6-2">选项6-2</el-menu-item>-->
-          <!--              <el-submenu index="6-3">-->
-          <!--                <template slot="title">选项6-3</template>-->
-          <!--                <el-menu-item index="6-3-1">选项6-3-1</el-menu-item>-->
-          <!--                <el-menu-item index="6-3-2">选项6-3-2</el-menu-item>-->
-          <!--                <el-menu-item index="6-3-3">选项6-3-3</el-menu-item>-->
-          <!--              </el-submenu>-->
-          <!--              <el-submenu index="6-4">-->
-          <!--                <template slot="title">选项6-4</template>-->
-          <!--                <el-menu-item index="6-4-1">选项6-4-1</el-menu-item>-->
-          <!--                <el-menu-item index="6-4-2">选项6-4-2</el-menu-item>-->
-          <!--                <el-menu-item index="6-4-3">选项6-4-3</el-menu-item>-->
-          <!--              </el-submenu>-->
-          <!--            </el-submenu>-->
-
           <div class="dv-right">
-            <el-button type="text">登录</el-button>
-            <span style="color:#409EFF">|</span>
-            <el-button type="text">注册</el-button>
+            <span v-if="logined == true">欢迎:{{this.user.username}}</span>
+            <el-button  v-if="logined == true" @click="logout" type="text">退出</el-button>
+            <el-button type="text" v-if="logined == false" v-on:click="showlogin" >登录</el-button>
+
+            <el-button  v-if="logined == false" type="text">
+              <span style="color:#409EFF">|</span>
+              注册</el-button>
+            <el-button   @click="system" type="text">后台管理入口</el-button>
           </div>
 
 
@@ -80,14 +63,56 @@
 </template>
 
 <script>
+    import utils from '../../../common/utils'
+    import * as loginApi from '../../../base/api/login'
   export default {
     name: "index",
     data() {
       return {
         date: new Date(),
+          user:{
+              userid:'',
+              username: '',
+              userpic: ''
+          },
+          logined:false,
       }
     },
     methods: {
+        //处理登录,跳转到登录页面
+        showlogin:function(){
+            this.$router.push('/base/components/loginform');
+        },
+        system:function(){
+            window.location = "http://ucenter.treehole.com/#/login"
+        },
+        refresh_user:function(){
+            //从sessionStorage中取出当前用户
+            let activeUser= utils.getActiveUser();
+            //取出cookie中的令牌
+            let uid = utils.getCookie('uid')
+            console.log(activeUser)
+            if(activeUser && uid && uid == activeUser.uid){
+                this.logined = true
+                this.user = activeUser;
+            }else{
+                if(!uid){
+                    return ;
+                }
+                //请求查询jwt
+                loginApi.getjwt().then((res) => {
+                    if(res.success){
+                        let jwt = res.jwt;
+                        let activeUser = utils.getUserInfoFromJwt(jwt)
+                        if(activeUser){
+                            this.logined = true
+                            this.user = activeUser;
+                            utils.setUserSession("activeUser",JSON.stringify(activeUser))
+                        }
+                    }
+                })
+            }
+        },
       //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
       dateFormat(time) {
         var date = new Date(time);
@@ -103,9 +128,30 @@
         // 拼接
         return year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
       },
+        //退出登录
+        logout: function () {
+            this.$confirm('确认退出吗?', '提示', {
+            }).then(() => {
+                loginApi.logout({}).then((res) => {
+                        if(res.success){
+                            //返回首页
+                            window.location = "http://www.treehole.com"
+                            this.$message('退出成功');
+                        }else{
+                            this.$message.error('退出失败');
+                        }
+                    },
+                    (res) => {
+                        loading.close();
+                    });
 
+            }).catch(() => {
+
+            });
+        },
     },
     mounted() {
+        this.refresh_user();
       var _this = this; //声明一个变量指向vue实例this,保证作用域一致
       this.timer = setInterval(function () {
         _this.date = new Date();//修改数据date
@@ -116,10 +162,147 @@
         clearInterval(this.timer);//在vue实例销毁钱，清除我们的定时器
       }
     },
+
   }
 </script>
 
 <style scoped lang="less">
+
+  .additional-features {
+    position: fixed;
+    right: 50px;
+    bottom: 180px;
+    z-index: 200;
+    width: 46px;
+    box-sizing: border-box;
+  }
+  .additional-features li {
+    position: relative;
+    padding-top:8px;
+    margin-bottom:4px;
+    width: 46px;
+    height: 66px;
+    line-height: 1;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.3);
+    -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000)";
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+    list-style-type:none;
+  }
+  .additional-features li.kf{
+    background-color: #4ab3f3;
+  }
+  .additional-features li.kf:hover{
+    background-color: #1da1f2;
+  }
+  .additional-features li.db {
+    padding-top:5px;
+    height:46px;
+  }
+  .additional-features li.xx .xx-dot{
+    position: absolute;
+    display: block;
+    top:13px;
+    right:13px;
+    width: 7px;
+    height: 7px;
+    background-color: #ff1e00;
+    border-radius: 50%;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+  }
+
+  .additional-features li.rx .revi-hotline-wrapper {
+    display: none;
+    position: absolute;
+    left: -235px;
+    bottom: 0;
+    width: 235px;
+    height: 80px;
+  }
+  .additional-features li.rx .revi-hotline {
+    position: absolute;
+    left: 0;
+    width: 221px;
+    height: 80px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: text;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    box-shadow: -2px 3px 25px rgba(0,0,0,0.1);
+  }
+  .additional-features li.rx .revi-hotline h3 {
+    margin: 16px 0 8px;
+    font-family: 'Arial',"Microsoft Yahei","Helvetica Neue",Helvetica,Arial,PingFang SC,"Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+    font-size: 28px;
+    color: #1da1f2;
+  }
+  .additional-features li.xz .xz-ewm {
+    display: none;
+    position: absolute;
+    top: -55px;
+    left: -188px;
+    width: 188px;
+    height: 174px;
+  }
+  .additional-features li.xz a {
+    position: absolute;
+    left: 0;
+    width: 174px;
+    height: 174px;
+    border: 1px solid #ddd;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    /*background: url("../assets/kefu.jpg") center center;*/
+    /* background: url("../images/revi-ewm@1x.png") center center\9; */
+    background-size: cover;
+    box-shadow: 2px 2px 25px rgba(0,0,0,0.1);
+  }
+  .additional-features li p {
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+  }
+  .additional-features li .additional-icon {
+    margin:0 auto 4px;
+    width: 36px;
+    height: 36px;
+    /* background: url("../assets/kefu.jpg");
+     background: url("../assets/kefu.jpg")\9;*/
+    background-size: 72px 591px;
+  }
+  .additional-features li .additional-icon.icon1 {
+    background-position: 0 -360px;
+  }
+  .additional-features li .additional-icon.icon2 {
+    background-position: 0 -396px;
+  }
+  .additional-features li .additional-icon.icon3 {
+    background-position: 0 -432px;
+  }
+  .additional-features li .additional-icon.icon4 {
+    background-position: 0 -468px;
+  }
+  .additional-features li .additional-icon.icon5 {
+    background-position: 0 -504px;
+  }
+  .additional-features li.active {
+    background-color: #1da1f2;
+    border-color: #1da1f2;
+  }
+  .additional-features li.active span {
+    display: none;
+  }
+  .additional-features li.active p {
+    color: #fff;
+  }
+
+
+
   .dv-index{
     .el-header {
       padding: 0;

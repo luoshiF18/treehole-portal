@@ -2,7 +2,7 @@ import http from './public'
 import querystring from 'querystring'
 import qs from 'qs'
 let sysConfig = require('@/../config/sysConfig')
-let apiUrl = sysConfig.thApiUrlPre;
+let apiUrl = sysConfig.authUrl;
 
 /*登陆*/
 export const login = params => {

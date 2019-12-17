@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
 Vue.use(Router);
 // 定义路由配置
 let routes = []
@@ -20,6 +19,7 @@ concat(CmsRouter)  //加入cms模块的路由
 concat(testDemoRouter)  //
 concat(evRouter)
 concat(PsychologistRouter)  //加入psychologist模块的路由
+
 
 // concat(UserRouter)  //加入用户模块的路由
 export default routes;

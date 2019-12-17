@@ -38,36 +38,6 @@
 
           <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
 
-
-          <!--          <el-menu-item index="/archive">评测</el-menu-item>-->
-          <!--          <el-menu-item index="/cross">跨域1</el-menu-item>-->
-          <!--          <el-menu-item index="/crossTwo">跨域2</el-menu-item>-->
-
-          <!--            <el-submenu index="5">-->
-          <!--              <template slot="title">我的工作台</template>-->
-          <!--              <el-menu-item index="5-1">选项1</el-menu-item>-->
-          <!--              <el-menu-item index="5-2">选项2</el-menu-item>-->
-          <!--              <el-menu-item index="5-3">选项3</el-menu-item>-->
-          <!--            </el-submenu>-->
-
-          <!--            <el-submenu index="6">-->
-          <!--              <template slot="title">我的工作台</template>-->
-          <!--              <el-menu-item index="6-1">选项6-1</el-menu-item>-->
-          <!--              <el-menu-item index="6-2">选项6-2</el-menu-item>-->
-          <!--              <el-submenu index="6-3">-->
-          <!--                <template slot="title">选项6-3</template>-->
-          <!--                <el-menu-item index="6-3-1">选项6-3-1</el-menu-item>-->
-          <!--                <el-menu-item index="6-3-2">选项6-3-2</el-menu-item>-->
-          <!--                <el-menu-item index="6-3-3">选项6-3-3</el-menu-item>-->
-          <!--              </el-submenu>-->
-          <!--              <el-submenu index="6-4">-->
-          <!--                <template slot="title">选项6-4</template>-->
-          <!--                <el-menu-item index="6-4-1">选项6-4-1</el-menu-item>-->
-          <!--                <el-menu-item index="6-4-2">选项6-4-2</el-menu-item>-->
-          <!--                <el-menu-item index="6-4-3">选项6-4-3</el-menu-item>-->
-          <!--              </el-submenu>-->
-          <!--            </el-submenu>-->
-
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>
             <el-button v-if="logined == true" @click="logout" type="text">退出</el-button>
@@ -358,7 +328,6 @@
   .additional-features li.active p {
     color: #fff;
   }
-
 
   .dv-index {
     .el-header {

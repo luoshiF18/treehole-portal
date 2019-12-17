@@ -62,14 +62,20 @@
     <el-col :span="4">
       <div class="grid-content bg-purple-light">
         <el-card style="margin-left: 20px;margin-top: 0px">
-          <el-card class="activity_high">最新入住专家：<span><img
-            src="https://img.ydlcdn.com/file/2019/12/6069c3903c17499c8b039245cd41bda0.jpg"
-            class="avatar"></span></el-card>
+          <el-card class="activity_high">最新入住专家：<br><br>
+            <span><img src="https://img.ydlcdn.com/file/2019/12/6069c3903c17499c8b039245cd41bda0.jpg" class="avatar">
+            </span>
+          </el-card>
         </el-card>
-        <el-card style="margin-left: 20px;margin-top: 175px">
-          <el-card class="activity_high">申请入住树洞平台：<span><img
-            src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
-            class="avatar"></span></el-card>
+        <el-card style="margin-left: 20px;margin-top: 160px">
+          <el-card class="activity_high">入住树洞平台：
+            <router-link :to="{path:'/add_psychologist'}">
+              <el-button type="text" icon="el-icon-edit">申请</el-button>
+            </router-link>
+            <span>
+            <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" class="avatar">
+            </span>
+          </el-card>
         </el-card>
       </div>
     </el-col>

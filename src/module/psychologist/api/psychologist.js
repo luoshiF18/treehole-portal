@@ -13,3 +13,8 @@ export const psychologist_list = (page, size, params) => {
 export const detail_get = id => {
   return http.requestQuickGet(apiUrl + '/psychologist/profile/get/detail/' + id)
 }
+
+//添加简介信息
+export const profileExt_add = params => {
+  return http.requestPost(apiUrl + '/psychologist/profile/add', params)
+}

@@ -5,11 +5,35 @@ let sysConfig = require('@/../config/sysConfig')
 let apiUrl = sysConfig.thApiUrlPre;
 
 
-//查询所有量表
-//页面查询
-export const page_list = (params) => {
-  //将params对象数据拼装成key/value串
-  let queryString = querystring.stringify(params);
+//查询所有类型
+export const type_list = () => {
+  /*  //将params对象数据拼装成key/value串
+    let queryString = querystring.stringify(params);*/
   //请求服务端的页面查询接口
-  return http.requestQuickGet(apiUrl + '/scale/select/search' + '?' + queryString);
+  return http.requestQuickGet(apiUrl + '/scale/select/type/all');
 }
+
+//根据类型查询该类型的量表
+export const type_scale_list = (typeId) => {
+  //请求服务端的页面查询接口
+  return http.requestQuickGet(apiUrl + '/scale/select/type?page=1&size=5&scaleTypeId=' + typeId + '&isFree=true');
+}
+//根据量表id查询详细信息
+export const scale_info = (scaleId) => {
+  //请求服务端的页面查询接口
+  return http.requestQuickGet(apiUrl + '/scale/select/detail?scaleId=' + scaleId);
+}
+//第一次测试，普通
+export const startTestFirst = (scaleId) => {
+  return http.requestQuickGet(apiUrl + '/scale/select/test/type2?scaleId=' + scaleId);
+}
+//开始测试,普通
+export const startTest1 = (scaleId, nextQuestionId, questionSort, optionId) => {
+  return http.requestQuickGet(
+    apiUrl + '/scale/select/test/type2?scaleId=' + scaleId + '&nextQuestionId=' + nextQuestionId + '&questionSort=' + questionSort + '&optionId=' + optionId);
+}
+//算分啊擦擦
+export const getResult = (getScore) => {
+  return http.requestPost(apiUrl + '/scale/select/result/', getScore);
+}
+

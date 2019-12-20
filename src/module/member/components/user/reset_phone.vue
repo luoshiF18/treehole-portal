@@ -33,6 +33,10 @@
 </template>
 
 <script>
+  //2、导入方法user.js方法
+  import * as userApi from '../../api/member'
+  import  utilApi from '../../../../common/utils'
+  import moment from 'moment'
   export default {
     data() {
       var checkPhone = (rule, value, callback) => {
@@ -44,14 +48,14 @@
           if (reg.test(value)) {
             callback();
           } else {
-            return callback(new Error('请输入合法的手机号！'));
+            return callback(new Error('请输入11位数字的合法手机号！'));
           }
         }
       };
       return {
         pageForm: {
           user_id: '',
-          user_role: '',
+          role_id: '1',
           user_phone: ''
         },
         pageFormRules: { // 添加界面必填选项+不填警告 rules
@@ -61,10 +65,8 @@
           ],
 
         },
-
       };
     },
-
     methods: {
       // 重置
       resetForm(formName) {
@@ -76,7 +78,8 @@
           if (valid) {  //表单校验成功
             this.$confirm('你确认绑定吗?', '提示', {}).then(() => {
               //调用user_add方法请求服务端的新增页面接口
-              userApi.user_add(this.pageForm).then(res => {
+              this.pageForm.user_id = utilApi.getActiveUser().userid;
+              userApi.reset_phone(this.pageForm).then(res => {
                 //解析服务端的响应内容
                 if (res.success) {
                   this.$message.success('绑定成功')
@@ -99,7 +102,19 @@
           path:'/member/user/page_bind',
         })
       },*/
-    }
+    },
+    created() { // vm实例的data和methods初始化完毕后执行，发ajax要提前
+      /*!//取出路由中的参数,赋值给数据对象*/
+      //this.params.page = Number.parseInt(this.$route.query.prepage || 1);
+      /*let activeUser = utilApi.getActiveUser();
+      this.pageForm.user_id = activeUser.userid;*/
+
+      //},
+    },
+    mounted() { // 模板和HTML已经渲染出来
+      /*当dom元素全部渲染完成后,自动调用query*/
+      this.query();
+    },
   }
 </script>
 

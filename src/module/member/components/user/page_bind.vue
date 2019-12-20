@@ -10,13 +10,13 @@
           <div>
           登录账号
             <div>{{params.user_phone}}</div>
-          <el-link type="primary" @click="editpass(page.row.user_id)"> 重置密码</el-link>
+          <el-link type="primary" @click="editpass()"> 重置密码</el-link>
         </div>
           <br/>
           <div>
             <div>手机绑定</div>
             已绑定({{params.user_phone}})
-           <el-link type="primary" @click="editphone(page.row.user_phone)"> 重置手机号</el-link>
+           <el-link type="primary" @click="editphone()"> 重置手机号</el-link>
           </div>
           <br/>
           <div>
@@ -41,25 +41,25 @@
       data(){
         return{
           params: {
-            user_id: '',
-            role_id: '',
+            /*user_id: '',
+            role_id: '',*/
             user_phone: '123',
           }
         }
       },
       methods: {
         //重置密码  通过user_id查询，返回结果后修改
-        editpass: function (user_id) {
+        editpass: function () {
           //打开页面
           this.$router.push({
-            path: '/member/page/user/reset_pass/' + user_id,
+            path: '/member/reset_pass',
           })
         },
         //重置手机号  通过user_id查询，返回结果后修改
-        editphone: function (params) {
+        editphone: function () {
           //打开页面
           this.$router.push({
-            path: '/member/page/user/reset_phone/' + this.params,
+            path: '/member/reset_phone',
           })
         },
 

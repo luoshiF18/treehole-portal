@@ -5,6 +5,8 @@ import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '../src/statics/iconfont/iconfont.css'
+// import '../src/assets/aliIcon/iconfont.css'
+import '../src/assets/iconfont/iconfont.css' // 引入第三方阿里里图标库（用户）
 
 import VueRouter from 'vue-router'
 

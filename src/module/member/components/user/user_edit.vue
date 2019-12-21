@@ -54,18 +54,20 @@
       <el-form-item label="企业公司" prop="company_id">
         <el-input  v-model="userForm.company_id" auto-complete="off" ></el-input>
       </el-form-item>
+
     </el-form>
-    <div slot="footer" class="dialog-footer">
-      <el-button @click="go_back">返回</el-button>
-      <el-button type="primary" @click.native="editSubmit" :loading="addLoading">提交</el-button>
-    </div>
+        <div class="dialog-footer">
+          <el-button @click="go_back">返回</el-button>
+          <el-button type="primary" @click.native="editSubmit" :loading="addLoading">提交</el-button>
+        </div>
       </el-card>
     </el-col>
   </el-row>
-
 </template>
 <script>
   import * as userApi from '../../api/member'
+  import  utilApi from '../../../../common/utils'
+  import moment from 'moment'
   export default{
     data(){
       return {
@@ -146,15 +148,17 @@
       }
     },
     created: function () {
-      this.user_id=this.$route.params.user_id;
+      //this.user_id=this.$route.params.user_id;
       //this.prepage = this.$route.query.page || '';
+      this.userForm.user_id = utilApi.getActiveUser().userid;
 
       //根据主键查询页面信息
-      userApi.user_get(this.user_id).then((res) => {
+      userApi.user_get(this.userForm.user_id).then((res) => {
         console.log(res);
-        if(res){
+        //if(res){
           this.userForm = res;
-        }
+          //alert(this.userForm)
+      //  }
       });
     },
     mounted:function(){
@@ -191,5 +195,9 @@
     height: 178px;
     display: block;
   }
+.dialog-footer {
+  margin-left: 70%;
 
+
+}
 </style>

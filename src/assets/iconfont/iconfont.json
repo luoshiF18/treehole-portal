@@ -1,0 +1,37 @@
+{
+  "id": "1571495",
+  "name": "icon",
+  "font_family": "iconfont",
+  "css_prefix_text": "aliIcon-",
+  "description": "用户管理图标",
+  "glyphs": [
+    {
+      "icon_id": "8776631",
+      "name": "view",
+      "font_class": "icon-test",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "8776676",
+      "name": "view_off",
+      "font_class": "icon-test1",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "11170144",
+      "name": "女",
+      "font_class": "nv",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "11170147",
+      "name": "男",
+      "font_class": "nan",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    }
+  ]
+}

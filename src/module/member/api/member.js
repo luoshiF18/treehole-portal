@@ -30,90 +30,86 @@ export const page_cardslist = (page,size,params) =>{
   let queryString = querystring.stringify(params);
   return http.requestQuickGet(apiUrl+'/member/card/getAllCards/'+page+'/'+size+'?'+ queryString);
 }
-export const card_viplist = () =>{
-  return http.requestQuickGet(apiUrl+ '/member/paygrade/find/all');
+//修改用户基本信息】】】
+export const user_edit= (params) =>{
+  return http.requestPut(apiUrl+'/member/user/update',params);
 }
-export const card_freelist = () =>{
-  return http.requestQuickGet(apiUrl+ '/member/freegrade/find/all');
+//注册】】】
+export const user_register = (params) => {
+  //请求服务端的页面查询接口
+  return http.requestPost(apiUrl + '/member/user/insert',params );
 }
-//页面查询(会员积分)
+// 页面查询(warn) 】】】
+export const page_warnlist = (params) =>{
+  //alert(params)
+  let queryString = querystring.stringify(params);
+  //alert(queryString)
+  return http.requestQuickGet(apiUrl+'/warnMsg/getRedisWarning'+'?'+ queryString);
+}
+
+//页面查询(会员积分)】】】
 export const user_point = (page,size,params) =>{
   // 将params对象数据拼装成key/value串
   let queryString = querystring.stringify(params);
   // 请求服务端的页面查询接口 通过ajax调用接口来请求数据
   return http.requestQuickGet(apiUrl+'/member/point/getAllPoints/'+page+'/'+size+'?'+ queryString);
 }
-// 页面查询(签到)
-export const user_checkin = (page,size,params) =>{
+//重置手机号】】】
+export const reset_phone = (params)=>{
+  //alert(params)
+    let queryString = querystring.stringify(params);
+  //alert(queryString)
+    return http.requestPut(apiUrl + '/member/user/update/phone'+ '?' + queryString);
+
+}
+
+//重置密码】】】】
+export const reset_pass = (params)=>{
+  //alert(params)
   let queryString = querystring.stringify(params);
   //alert(queryString)
-  // 请求服务端的页面查询接口 通过ajax调用接口来请求数据
-  //return http.requestQuickGet(apiUrl+'/member/checkin/getAllCheckin/'+page+'/'+size+'?'+ 'nickname='+nickname);
-  return http.requestQuickGet(apiUrl+'/member/checkin/getAllCheckin/'+page+'/'+size+'?'+ queryString);
-
+  return http.requestPut(apiUrl + '/member/user/update/password'+ '?' + queryString);
 }
-
-//*------------------------------------------------------------*/
-//删除页面（用户)  -->  DELETE /user/delete/id/{user_id}
-export const user_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/user/delete/'+ id);
-}
-
-//删除页面（注册会员）
-export const freegrade_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/freegrade/delete/'+id);
-}
-//删除页面（付费会员）
-export const paygrade_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/paygrade/delete/'+id);
-}
-//删除页面（积分 point_id）
-export const point_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/point/deleteByPointId/'+id);
-}
-//删除页面（签到信息）
-export const checkin_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/checkin/deleteByCheckId/'+id);
-}
-//删除页面（）
-export const card_del= (id)=>{
-  return http.requestDelete(apiUrl+'/member/card/delete/userId/'+id);
-}
-
-//新增页面
-export const user_add = params =>{
-  return http.requestPost(apiUrl+'/member/user/insert',params);
-}
-export const freegrade_add = params =>{
-  return http.requestPost(apiUrl+'/member/freegrade/insert',params);
-}
-export const paygrade_add = params =>{
-  return http.requestPost(apiUrl+'/member/paygrade/insert',params);
-}
-export const point_add = params =>{
-  return http.requestPost(apiUrl+'/member/point/insert',params);
-}
-export const checkin_add = params =>{
-  return http.requestPost(apiUrl+'/member/checkin/insert',params);
-}
-export const card_add = id =>{
-  return http.requestPost(apiUrl+'/member/card/insert/id/'+ id);
-}
-
-export const page_add = params =>{
-  return http.requestPost(apiUrl+'/member/user/insert',params);
-}
-
-
-//根据id查询页面(用户)
+//根据id查询页面(用户)】】】
 export const user_get= id =>{
   return http.requestQuickGet(apiUrl+'/member/user/find/userId/'+id);
 }
-
-//根据id查询页面(卡)
+//根据id查询页面(卡)   】】】】
 export const card_get= id =>{
-  return http.requestQuickGet(apiUrl+'/member/card/getCardById/'+id);
+  return http.requestQuickGet(apiUrl+'/member/card/getCardByUserId/'+ id);
 }
+// 页面查询(签到)】】】
+export const user_checkin = (page,size,params) => {
+  let queryString = querystring.stringify(params);
+  return http.requestQuickGet(apiUrl + '/member/checkin/getAllCheckin/' + page + '/' + size + '?' + queryString);
+}
+//新增签到信息】】】
+export const checkin_add = params =>{
+  return http.requestPost(apiUrl+'/member/checkin/insert',params);
+}
+//新增积分信息】】】
+export const point_add = params =>{
+  return http.requestPost(apiUrl+'/member/point/insert',params);
+}
+// 测评结果查询(签到)】】】
+export const page_mytestlist = (params) => {
+  let queryString = querystring.stringify(params);
+  //alert(queryString)
+  return http.requestQuickGet(apiUrl + '/scale/select/user/result' + '?' + queryString);
+}
+//红包信息】】】
+export const redpaper_get = (params) => {
+  let queryString = querystring.stringify(params);
+  //alert("+++11"+queryString)
+  return http.requestQuickGet(apiUrl + '/marketing/coupon/my_coupon_list'+ '?'+ queryString );
+}
+//】】】红包个数查询
+export const redcount_get =id => {
+  //let queryString = querystring.stringify(params);
+  //alert("+++11"+queryString)
+  return http.requestQuickGet(apiUrl + '/marketing/coupon/count/' + id);
+}
+
 //根据id查询页面(注册会员等级)
 export const freegrade_get= id =>{
   return http.requestQuickGet(apiUrl+'/member/freegrade/getGradeById/'+id);
@@ -131,18 +127,6 @@ export const page_edit= (id,params) =>{
   return http.requestPut(apiUrl+'/member/page/edit/'+id,params);
 }
 
-export const user_edit= (params) =>{
-  return http.requestPut(apiUrl+'/member/user/update',params);
-}
-export const card_edit= (params) =>{
-  return http.requestPut(apiUrl+'/member/card/update',params);
-}
-export const freegrade_edit= (params) =>{
-  return http.requestPut(apiUrl+'/member/freegrade/update',params);
-}
-export const paygrade_edit= (params) =>{
-  return http.requestPut(apiUrl+'/member/paygrade/update',params);
-}
 //发布页面@
 export const page_postPage= id => {
   return http.requestPost(apiUrl+'/member/page/postPage/'+id)

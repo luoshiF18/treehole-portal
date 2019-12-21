@@ -12,6 +12,7 @@ import CmsRouter from '@/module/cms/router'
 import testDemoRouter from '@/module/testDemo/router'
 import evRouter from '@/module/evaluation/router'
 import PsychologistRouter from '@/module/psychologist/router'
+import AppointmentRouter from '@/module/appointment/router'
 
 // 合并路由规则
 concat(HomeRouter)  //加入home模块的路由
@@ -19,6 +20,7 @@ concat(CmsRouter)  //加入cms模块的路由
 concat(testDemoRouter)  //
 concat(evRouter)
 concat(PsychologistRouter)  //加入psychologist模块的路由
+concat(AppointmentRouter)  //加入appointment模块的路由
 
 
 // concat(UserRouter)  //加入用户模块的路由

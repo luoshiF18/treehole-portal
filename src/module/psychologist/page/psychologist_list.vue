@@ -36,13 +36,14 @@
             <el-table-column prop="sex" label="性别" width="100"></el-table-column>
             <el-table-column prop="age" label="年龄" width="100"></el-table-column>
             <el-table-column prop="region" label="地区" width="170"></el-table-column>
-            <el-table-column prop="studio" label="工作室" width="180"></el-table-column>
-            <el-table-column prop="praise_number" label="好评数" width="150"></el-table-column>
-            <el-table-column prop="platform_year" label="从业年限" width="150"></el-table-column>
-            <el-table-column prop="price" label="收费标准" width="150"></el-table-column>
-            <el-table-column label="操作" width="100">
+            <el-table-column prop="studio" label="工作室" width="170"></el-table-column>
+            <el-table-column prop="praise_number" label="好评数" width="100"></el-table-column>
+            <el-table-column prop="platform_year" label="从业年限" width="100"></el-table-column>
+            <el-table-column prop="price" label="收费标准/小时" width="150"></el-table-column>
+            <el-table-column label="操作" width="200">
               <template slot-scope="page">
                 <el-button size="small" type="success" @click="getDetail(page.row.id)">详情</el-button>
+                <el-button size="small" type="primary" @click="appointment(page.row.id)">立即预约</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -125,14 +126,19 @@
         this.query();
       },
       //打开详情页面，并且把参数通过url传递过去
-      getDetail: function (id) {
+      getDetail: function (cltId) {
         this.$router.push({
-          path: '/psychologist_detail/' + id,
+          path: '/psychologist_detail/' + cltId,
           query: {
             page: this.params.page,
             region: this.params.region,
             sex: this.params.sex
           }
+        })
+      },
+      appointment:function(id){
+        this.$router.push({
+          path: '/appointment/write/'+ id ,
         })
       },
       tableRowClassName({row, rowIndex}) {

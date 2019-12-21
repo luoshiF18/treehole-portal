@@ -53,19 +53,10 @@
         query: function () {
           //1、调用js方法请求服务端页面查询接口  2、导入user.js
           userApi.page_warnlist(this.params).then((res) => {
-            /*if (res.success) {
-              alert(res)
-            } else {
-              this.$message.error(res.message)
-            }*/
-            // 2）将res结果数据赋值给list数据模型对象
-            //alert(res)
             this.list = res;
-            //this.total = res.queryResult.total;
             this.loading = false;
           })
         },
-
         //编写日期格式化的方法
         formatTime(time) {
           if(time == null){
@@ -112,16 +103,7 @@
       },
       //钩子函数们！
       created() { // vm实例的data和methods初始化完毕后执行，发ajax要提前
-        /*取出路由中的参数,赋值给数据对象*/
-        //this.params.page = Number.parseInt(this.$route.query.prepage || 1);
         this.params.userId = utilApi.getActiveUser().userid;//activeUser.userid;
-        //获取cwarn 内的积分值
-      /*  userApi.warn_get(this.params.user_id).then((res) => {
-          console.log(res);
-          if(res){
-            this.warnFrom = res;
-          }
-        });*/
       },
 
       mounted() { // 模板和HTML已经渲染出来
@@ -132,12 +114,13 @@
 </script>
 
 <style scoped>
-.cardstyle {
-  margin-top: 20px;
-  width: 100%;
-  height: 300px;
-  /*height: 300px;*/
-}
+  .cardstyle {
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+    overflow:auto;
+  }
+
 .claname {
   font-size: 15px;
 }

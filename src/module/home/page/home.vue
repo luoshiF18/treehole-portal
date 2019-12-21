@@ -41,11 +41,12 @@
             <el-button v-if="logined == true" @click="logout" type="text">退出</el-button>
             <el-button type="text" v-if="logined == false" v-on:click="showlogin">登录</el-button>
 
-            <el-button v-if="logined == false" type="text">
+            <el-button v-if="logined == false" type="text" v-on:click="showregister">
               <span style="color:#409EFF">|</span>
               注册
             </el-button>
             <el-button @click="system" type="text">后台管理入口</el-button>
+            <el-button @click="usercenter" type="text">用户中心</el-button>
           </div>
 
 
@@ -89,6 +90,13 @@
       },
       system: function () {
         window.location = "http://ucenter.treehole.com/#/login"
+      },
+      showregister: function () {
+        this.$router.push('/member/register');
+      },
+      usercenter: function () {
+
+        this.$router.push('/member/user_center');
       },
 
       refresh_user: function () {

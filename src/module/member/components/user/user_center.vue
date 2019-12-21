@@ -1,6 +1,7 @@
 <template>
   <div>
     <div style="margin-bottom: 15px; margin-left: 19%">会员中心</div>
+    <!--第一部分-->
     <div class="head">
       <div class="grid-content">
         <el-row>
@@ -22,31 +23,28 @@
                 <i class="iconfont aliIcon-nv femalecolor"></i>
               </span>
              <!--判断是否为VIP-->
-              <span v-if="cardForm.paygrade==='无'">
-              </span>
+              <span v-if="cardForm.paygrade==='无'"></span>
               <span v-else>
                <span class="vipstyle">v</span> <span class="vipstyle2">{{cardForm.paygrade}}</span>
                 <span class="vipstyle2">({{formatTime(cardForm.paygrade_start)}}至{{formatTime(cardForm.paygrade_end)}})</span>
               </span>
+              <!--age-->
               <div class="role">{{userForm.role_name}} <span class="role"> {{userForm.age}}岁</span></div>
+              <!--修改个人信息-->
               <router-link tag="span" :to="{path: '/member/user_edit'}" class="linkstyle">
                 <el-button type="text">修改个人信息</el-button>
               </router-link>
               <!--我要签到-->
               <router-link tag="span" :to="{path: '/member/checkin'}" class="linkstyle">
-                <el-button type="text">我要签到</el-button>
+                <el-button type="text" class="signstyle">我要签到</el-button>
               </router-link>
-
             </div>
 
-          </el-col>
-          <!--右侧箭头-->
-          <el-col :span="15">
-            <div class="arrow"><i class="el-icon-arrow-right icon2"></i></div>
           </el-col>
         </el-row>
       </div>
     </div>
+    <!--第二部分-->
     <el-row type="flex" class="row-bg" justify="center">
       <el-col :span="15">
         <div class="grid-content">
@@ -61,7 +59,7 @@
           <router-link tag="span" :to="{path: '/member/page_mytest'}">
             <div class="spans" style="border-bottom: 1px solid #EBEEF5">
               <i class="el-icon-edit-outline icon1"></i>
-              <span>我的测试</span><i class="el-icon-arrow-right icon2"></i>
+              <span>我的测评</span><i class="el-icon-arrow-right icon2"></i>
             </div>
           </router-link>
           <!--我的消息-->
@@ -74,6 +72,7 @@
         </div>
       </el-col>
     </el-row>
+    <!--第三部分-->
     <el-row type="flex" class="row-bg" justify="center">
       <el-col :span="15">
         <div class="grid-content">
@@ -102,14 +101,15 @@
         </div>
       </el-col>
     </el-row>
+    <!--第四部分-->
     <el-row type="flex" class="row-bg" justify="center">
       <el-col :span="15">
         <div class="grid-content">
           <!--退出-->
-          <router-link tag="span" :to="{path: '/'}">
-            <div class="spans">
+          <router-link tag="span" :to="{path: '/'}" >
+            <div class="spans"  @click="logout">
               <i class="el-icon-upload2 tuichu"></i>
-              <span   type="text" @click="logout">退出</span><i class="el-icon-arrow-right icon2"></i>
+              <span   type="text">退出</span><i class="el-icon-arrow-right icon2"></i>
             </div>
           </router-link>
         </div>
@@ -127,7 +127,7 @@
     name: "userInfo",
     data() {
       return {
-        logined: false,
+        logined: true,
         /*userlist: {
           user_id: '',
           username: '',
@@ -153,7 +153,7 @@
     methods: {
       //退出登录
       logout: function () {
-        alert(this.logined)
+        //alert(this.logined)
         this.$confirm('确认退出吗?', '提示', {}).then(() => {
           logoutApi.logout({}).then((res) => {
               if (res.success) {
@@ -172,43 +172,13 @@
 
         });
       },
-      /*refresh_user: function () {
-        //从sessionStorage中取出当前用户
-        let activeUser = utilApi.getActiveUser();
-        // console.log(activeUser)
-        //取出cookie中的令牌
-        let uid = utilApi.getCookie('uid')
-        // console.log('当前用户：'+activeUser)
-        if (activeUser && uid && uid == activeUser.uid) {
-          this.logined = true
-          this.user = activeUser;
-          console.log(this.user.userid)
-          // console.log('userId：'+ this.user.id)
-        } else {
-          if (!uid) {
-            return;
-          }
-          //请求查询jwt
-          loginApi.getjwt().then((res) => {
-            if (res.success) {
-              let jwt = res.jwt;
-              let activeUser = utilApi.getUserInfoFromJwt(jwt)
-              if (activeUser) {
-                this.logined = true
-                this.user = activeUser;
-                utilApi.setUserSession("activeUser", JSON.stringify(activeUser))
-              }
-            }
-          })
-        }
-      },*/
+
       //编写日期格式化的方法
       formatTime(time) {
         if(time == null){
           return "/";
         }
         const date = new Date(time);
-        // return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
         return moment(date).format("YYYY-MM-DD");
       },
     },
@@ -218,7 +188,6 @@
       userApi.user_get(this.userForm.user_id).then((res) => {
         console.log(res);
         this.userForm = res;
-        //alert("++" + this.userForm)
       });
       //获取card 内的vip
       userApi.card_get(this.userForm.user_id).then((res) => {
@@ -228,7 +197,7 @@
       });
     },
     mounted:function(){
-     /* this.refresh_user();*/
+
     }
   }
 </script>
@@ -265,7 +234,11 @@
     }
 
     .linkstyle {
-      /*text-decoration: none;*/
+      color: #7990f9;
+      font-size: 14px;
+    }
+    .signstyle {
+      margin-left: 15px;
       color: #7990f9;
       font-size: 14px;
     }

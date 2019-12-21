@@ -1,16 +1,20 @@
 <template>
-  <el-row type="flex" class="row-bg" justify="center" style="margin-top: 80px">
+  <el-row type="flex" class="row-bg" justify="center" style="margin-top: 10px">
     <el-col :span="18">
+      <!--面包屑-->
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/member/user_center' }">用户中心</el-breadcrumb-item>
         <el-breadcrumb-item>签到</el-breadcrumb-item>
       </el-breadcrumb>
       <el-divider></el-divider>
-      <el-card style="height: 300px">
-        点击签到：
-        <el-button class="sign" size="medium" >签到</el-button>
+      <!--签到按钮-->
+      <el-card style="height: 100px">
+        <div style="transform: translate(30%,30%)">
+          <span >点击签到:</span>
+          <el-button  type="success" class="sign"  :disabled="isShow" size="medium" @click="insertCheckin" >签到</el-button>
+          <!--<el-button type="success" :disabled="isShow" @click="signAlert">签到</el-button>-->
+        </div>
       </el-card>
-
       <!--签到历史-->
       <el-card>
         <el-table :data="list"
@@ -31,7 +35,6 @@
                            sortable
                            width="250">
           </el-table-column>
-
         </el-table>
         <!--列表底部分页-->
         <el-pagination layout="total, prev, pager, next"
@@ -55,11 +58,20 @@
       data() {
         return {
           loading: false,
+          // 签到按钮 显示的状态
+          isShow: false,
           list: [],  // 数据
           page: 1, //  当前页
           size: 6, //  每页显示数据的条数
           params: {  //  数据对象 这里和上面的查询表单做了双向绑定
             nickname: ''
+          },
+          checkinForm: {
+            user_id: '',
+          },
+          pointForm: {
+            user_id: '',
+            act_id: 'a4f6820eea97433db565f58b9d974b7b',  //签到id
           },
           total: 0,  //  数据总条数
         }
@@ -75,6 +87,32 @@
             this.loading = false;
           })
         },
+        insertCheckin: function(){
+          //签到
+          userApi.checkin_add(this.checkinForm).then(res=>{
+            if (res.success) {
+              //积分
+              userApi.point_add(this.pointForm).then(res=>{
+                if (res.success) {
+                  this.$message.success('签到成功')
+                  this.query()
+                  this.isShow = true
+                }else if(res.message){
+                  this.$message.error(res.message)
+                }else{
+                  this.$message.error('签到失败')
+                }
+              });
+              //this.$message.success('签到成功')
+            }else if(res.message){
+              this.$message.error(res.message)
+            }else{
+              this.$message.error('签到失败')
+            }
+
+          });
+        },
+
         //当前页码改变时触发的事件 @current-change="changePage"
         changePage: function (currentPage) {  //current--》当前页码
           this.page = currentPage;
@@ -127,7 +165,11 @@
         /*!//取出路由中的参数,赋值给数据对象*/
         this.page = Number.parseInt(1);
         this.params.nickname = utilApi.getActiveUser().username;
+        this.checkinForm.user_id = utilApi.getActiveUser().userid;
+        this.pointForm.user_id = utilApi.getActiveUser().userid;
         //alert(this.params.nickname )
+        //alert("+++id1:" + this.checkinForm.user_id);
+        //alert("+++id2:" + this.pointForm.user_id);
         this.query();
       },
       mounted() { // 模板和HTML已经渲染出来
@@ -150,4 +192,7 @@
   margin-bottom: 0;
   width: 40%;
 }
+  .buttonstyle {
+    margin-left: 1px;
+  }
 </style>

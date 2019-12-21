@@ -83,6 +83,33 @@ export const user_checkin = (page,size,params) => {
   let queryString = querystring.stringify(params);
   return http.requestQuickGet(apiUrl + '/member/checkin/getAllCheckin/' + page + '/' + size + '?' + queryString);
 }
+//新增签到信息】】】
+export const checkin_add = params =>{
+  return http.requestPost(apiUrl+'/member/checkin/insert',params);
+}
+//新增积分信息】】】
+export const point_add = params =>{
+  return http.requestPost(apiUrl+'/member/point/insert',params);
+}
+// 测评结果查询(签到)】】】
+export const page_mytestlist = (params) => {
+  let queryString = querystring.stringify(params);
+  //alert(queryString)
+  return http.requestQuickGet(apiUrl + '/scale/select/user/result' + '?' + queryString);
+}
+//红包信息】】】
+export const redpaper_get = (params) => {
+  let queryString = querystring.stringify(params);
+  //alert("+++11"+queryString)
+  return http.requestQuickGet(apiUrl + '/marketing/coupon/my_coupon_list'+ '?'+ queryString );
+}
+//】】】红包个数查询
+export const redcount_get =id => {
+  //let queryString = querystring.stringify(params);
+  //alert("+++11"+queryString)
+  return http.requestQuickGet(apiUrl + '/marketing/coupon/count/' + id);
+}
+
 //根据id查询页面(注册会员等级)
 export const freegrade_get= id =>{
   return http.requestQuickGet(apiUrl+'/member/freegrade/getGradeById/'+id);

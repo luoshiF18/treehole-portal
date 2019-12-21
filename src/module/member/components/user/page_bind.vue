@@ -1,34 +1,44 @@
 <template>
-  <el-row type="flex" class="row-bg" justify="center" style="margin-top: 80px" >
+  <el-row type="flex" class="row-bg" justify="center" style="margin-top: 10px" >
     <el-col :span="10">
+      <!--面包屑-->
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/member/user_center' }">用户中心</el-breadcrumb-item>
         <el-breadcrumb-item>账号绑定</el-breadcrumb-item>
       </el-breadcrumb>
       <el-divider></el-divider>
-        <div class="grid-content bg-purple">
-          <div>
-          登录账号
-            <div>{{params.user_phone}}</div>
-          <el-link type="primary" @click="editpass()"> 重置密码</el-link>
-        </div>
-          <br/>
-          <div>
-            <div>手机绑定</div>
-            已绑定({{params.user_phone}})
-           <el-link type="primary" @click="editphone()"> 重置手机号</el-link>
-          </div>
-          <br/>
-          <div>
-          <div>微信绑定</div>
-          <el-link type="primary" @click="editpass(page.row.user_id)">立即绑定</el-link>
-          </div>
-          <br/>
-          <div>
-          <div>QQ绑定</div>
-          <el-link type="primary" @click="editpass(page.row.user_id)">立即绑定</el-link>
-          </div>
-        </div>
+      <el-form :model="userForm"
+               label-width="80px"
+               status-icon
+               style="margin-top: 30px"
+               label-position="left"
+               class="demo-ruleForm"
+               ref="userForm">
+      <el-card class="cardstyle" >
+            <!--正文数据-->
+              <div>
+                登录账号
+                <div>{{userForm.user_phone}}</div>
+                <el-link type="primary" @click="editpass()"> 重置密码</el-link>
+              </div>
+              <br/>
+              <div>
+                <div>手机绑定</div>
+                已绑定({{userForm.user_phone}})
+                <el-link type="primary" @click="editphone()"> 重置手机号</el-link>
+              </div>
+              <br/>
+              <div>
+                <div>微信绑定</div>
+                <el-link type="primary" @click="editpass(page.row.user_id)">立即绑定</el-link>
+              </div>
+              <br/>
+              <div>
+                <div>QQ绑定</div>
+                <el-link type="primary" @click="editpass(page.row.user_id)">立即绑定</el-link>
+              </div>
+      </el-card>
+      </el-form>
     </el-col>
   </el-row>
 </template>
@@ -36,14 +46,15 @@
 <script>
   //2、导入方法user.js方法
   import * as userApi from '../../api/member'
+  import  utilApi from '../../../../common/utils'
   import moment from 'moment'
     export default {
       data(){
         return{
-          params: {
-            /*user_id: '',
-            role_id: '',*/
-            user_phone: '123',
+            user_id:'',
+          userForm: {
+            user_id: '',
+            user_phone: '',
           }
         }
       },
@@ -62,25 +73,28 @@
             path: '/member/reset_phone',
           })
         },
-
       },
       //钩子函数们！
       created() { // vm实例的data和methods初始化完毕后执行，发ajax要提前
+        this.user_id = utilApi.getActiveUser().userid;
+        //alert(this.user_id)
+        //根据主键查询页面信息
+        userApi.user_get(this.user_id).then((res) => {
+          console.log(res);
+          this.userForm = res;
+        });
       },
       mounted() { // 模板和HTML已经渲染出来
-        //this.query();
       }
     }
 </script>
 
 <style scoped>
 
-  .bg-purple {
-    background: #E4E7ED
-  ;
-  }
-  .grid-content {
-    border-radius: 4px;
-    min-height: 36px;
+  .cardstyle {
+    margin-top: 20px;
+    width: 700px;
+    height: 400px;
+    /*height: 300px;*/
   }
 </style>

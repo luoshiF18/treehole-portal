@@ -37,7 +37,7 @@
           <template>
             <el-button class="ali" type="primary" @click="aLiPay">支付宝付款</el-button>
             <el-button class="wx" type="success" @click="WxPay">微信支付</el-button>
-            <el-button class="wy" type="button" @click="YYZX">网银支付</el-button>
+            <el-button class="wy" type="button" >网银支付</el-button>
           </template>
         </div>
     </div>
@@ -52,18 +52,24 @@
 </template>
 <script>
   import * as appointmentApi from '../api/appointment'
-  import querystring from 'querystring'
   export default {
     data() {
       return {
         active: 1,
         discount:'',
         options:['暂无优惠卷可用'],
+
       }
     },
     methods: {
       next() {
         if (this.active++ > 2) this.active = 0;
+        this.$router.push({
+          path: '/appointment/consultation',
+          query: {
+            form: this.form,
+          }
+        });
       },
       aLiPay() {
         const aLiUrl = require("../../../assets/alipay.png");
@@ -137,13 +143,6 @@
           this.next();
         });
       },
-      YYZX(){
-        this.$router.push({
-          path: '/appointment/pay',
-          query: {
-          }
-        });
-      }
     },
     mounted(){
     },

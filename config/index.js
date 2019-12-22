@@ -114,8 +114,6 @@ module.exports = {
         //target: 'http://127.0.0.1:50201'
 
       },
-
-
         '/api/warnMsg': {
           target: 'http://localhost:40200',
           pathRewrite: {

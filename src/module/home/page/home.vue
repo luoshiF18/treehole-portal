@@ -1,13 +1,11 @@
 <template>
 
   <div class="dv-index">
-    <ul class="additional-features" data-t="" data-tt="">
-      <li class="kf">
-        <!-- <div class="additional-icon icon1"></div>-->
-        <a><p href=""
-              onclick="window.open('http://ucenter.treehole.com/#/imclient','_blank',' scrollbar = 0,resizable=0,width=870,height=600,top=220,left=430')">
-          客服</p></a>
-        <!--<p>客服</p>-->
+    <ul class="additional-features">
+      <li class="kf"
+          onclick="window.open('http://ucenter.treehole.com/#/imclient','_blank',' scrollbar = 0,resizable=0,width=870,height=600,top=220,left=430')">
+        <i class="iconfont aliIcon-kefu" style="padding-left: 14px"></i>
+        <div style="color: #f2fffc; text-align: center;margin-top: 2px">客服</div>
       </li>
     </ul>
     <el-container style="height: 100vh;">
@@ -196,10 +194,11 @@
     position: relative;
     padding-top: 8px;
     margin-bottom: 4px;
-    width: 46px;
-    height: 66px;
+    width: 70px;
+    height: 80px;
     line-height: 1;
     cursor: pointer;
+    border-radius: 15px;
     background-color: rgba(0, 0, 0, .3);
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000)";
     transition: all 0.2s linear;
@@ -368,7 +367,10 @@
 
     .el-main {
       background-color: #E9EEF3;
+      /*background-color: #407bbf;*/
       color: #333;
+      padding: 0;
+      margin: 0;
     }
 
     .el-footer {

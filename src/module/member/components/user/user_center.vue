@@ -128,12 +128,6 @@
     data() {
       return {
         logined: true,
-        /*userlist: {
-          user_id: '',
-          username: '',
-          role_name: '',
-          gender: '0'
-        },*/
         userForm: {
           user_id:'',
           role_name: '',

@@ -12,7 +12,8 @@
 
       <el-card class="cardstyle">
         <el-collapse >
-          <el-collapse-item v-for="(li,index) in list" class="claname">
+          <div v-if="total == 0">近期无预警信息!</div>
+          <el-collapse-item v-for="(li,index) in list" v-else-if="list.length > 0" class="claname">
             <template slot="title" >
               <div class="liInfostyle">{{formatTime(li.createTime)}}</div>您填写的 <div  class="liInfostyle">{{li.scaleName}}</div>有一条信息产生。
             </template>
@@ -53,7 +54,13 @@
         query: function () {
           //1、调用js方法请求服务端页面查询接口  2、导入user.js
           userApi.page_warnlist(this.params).then((res) => {
-            this.list = res;
+            if (res.success) {
+              this.list = res;
+              this.total = res.queryResult.total;
+            }else {
+              this.$message.error(res.message)
+            }
+
             this.loading = false;
           })
         },

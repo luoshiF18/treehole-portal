@@ -1,0 +1,43 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1576756096287'); /* IE9 */
+  src: url('iconfont.eot?t=1576756096287#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAS4AAsAAAAACYQAAARqAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDIgqGMIVVATYCJAMUCwwABCAFhG0HSxtUCBHVm9/JvsK4hSddz3VvkyjLAl0XSCnrhR/nhf8DLsAEJAAAAABABNEaOnt/IQRLJKOioqiqurrCAQsdVaHA6KoqBIUPD881/2XS6XnUgNp8NJq1yd4EE6y40gMuCJumxZU8kfZ/Lguszp6LMEV5Fj3xKL/l9OVn5GbsAmC+vLdJYecXRvI5BXyCJq2TnsgVFSx92rdHDxxTXZQOrAtsSl0BttF8pwNFtBXZD3IQv0Lsahf0SODTBGoNSgj7KVkyIJlyUiBu1tWUAYVMcg4yVGsrU67MxF2u6jRLd8Ed+/fjI1UESCoKlDNPbiRXAr/RedNQ/iuRmwkgbs8B7joKzEMmzlNdZ+Cm5klqP+y0DJVyY3rjvGn8L9tU1raJcaarUeT+84hKFFU9oNvpzBtbp1HwxhGlqWsYBNQNpCXsz5XUogX+xi2g6MbbzK+Q5Rob9aEeRfY0cCb6nUO5PP6YesI8Qg8VLCvjOLkgQJ7P1d5ltyZAjrNdZovZpzLumVx4AfnnFTQfAU9p5xsonxyAZWP+8sMg2g0ulBbdn+HCK3m+BcbI7vMpNRoXOLksGt7jkus5FvnStj8EWUqXLrhLt1fQGbf5gMNU4BEh8w6TfovzP4T8DrJpN4tpVkEgDsEICIq/axFWTu9e2mNexuxCO2XY7DUG55a0sdDOwO7h1rImeF3dt4xeNMOi+TW1R1u73qHG7Z3lMFr2fwjJJSqLx7+WmZeHJfJNgdHn55/b1Ht6DgnR+bbMzW89p//Hlpsq3+STPv4oypKqwIEuLu7yq9zot6OyMimSaAHcgQkGGntkhg/7Jt+Y/pV6xYzr61lHzf7O5W5pqVM7/rahLfq5I9mJcXOVWpN3M69cLN79aZcCfPLg1+pRvLx/Yv+ytXnr+8T30F6/FhReJSIIUVW7xierVaJ2ckD9TdBMulR7hot6LTtAcWJrfXNocB5lN/HcJuX7s6Kilf3MgeWi4mffmZ6K1pjVfUVFbZOgKpwkcL7WSpJVeFs1TpChgwiiGqfqdX/Y+1OzBudfY0f/dmjf+Dz+f84YUCLFS/G1zf6L8pJ0qhyb+SA9LWyfuL/xlPydPvWj/rolA6/iIYRgeUlW3qL6CriD50tcci5/pYq5IsuDukj2VDi+QomEWjVKCRRfq2M7mo7SCUJ1SMyFkypjrqRQbRzADJ3HV6izrqj8aLaArzWnd32dNn0Q2YBZIwofmi3wSaMX+EKzHTBDD/gKne74Ss1h42udhvEd60yGWEdzxlfBD3j7hfqdBqVZJXKqN1h+dq8clNqoA7Kuo5AnWTS7xgG5jXP0V1mIKFBMPayo52HXEYxMDb5LUomMszRVad+UvFNvROaMr4If8PYL9TsNylwvUeznN1h+dq+cM/TDfUDW9e4hT7ISwLVqKDV0LPvrr7IQUfRxiqmHFRzYqSmCMf2wBt8lqWokxllKlqmyqqR/TX+MxS/5SOVgJSzTNh3TNT0jXPlwLKh3S+QekFvDlz28DoYBAAA=') format('woff2'),
+  url('iconfont.woff?t=1576756096287') format('woff'),
+  url('iconfont.ttf?t=1576756096287') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1576756096287#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 添加的新的样式*/
+[class^="aliIcon-"],
+[class*=" aliIcon-"]/*这里有空格*/
+{
+  font-family: "iconfont" !important;
+  font-size: 19px;  /*图标的大小*/
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.aliIcon-icon-test:before {
+  content: "\e633";
+}
+
+.aliIcon-icon-test1:before {
+  content: "\e634";
+}
+
+.aliIcon-nv:before {
+  content: "\e60c";
+}
+
+.aliIcon-nan:before {
+  content: "\e60d";
+}
+

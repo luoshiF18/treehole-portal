@@ -11,12 +11,14 @@ import HomeRouter from '@/module/home/router'
 import CmsRouter from '@/module/cms/router'
 import testDemoRouter from '@/module/testDemo/router'
 import evRouter from '@/module/evaluation/router'
+import memberRouter from '@/module/member/router'
 
 // 合并路由规则
 concat(HomeRouter)  //加入home模块的路由
 concat(CmsRouter)  //加入cms模块的路由
 concat(testDemoRouter)  //
 concat(evRouter)
+concat(memberRouter)
 
 // concat(UserRouter)  //加入用户模块的路由
 export default routes;

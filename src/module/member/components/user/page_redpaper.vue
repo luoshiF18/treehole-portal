@@ -8,72 +8,55 @@
       </el-breadcrumb>
     </div>
     <el-divider></el-divider>
-    <el-row type="flex" class="row-bg" justify="center" style="margin-top: 10px">
-      <div class="money">
-        <!--可用红包-->
-        <el-col :span="12">
-          <div style="margin-bottom: 30px">可用红包:{{this.count}}个</div>
-          <!--可用-->
-          <div class="container">
-            <div class="list">
-              <span>可使用:</span>
-              <ul>
-                <span v-if="total1 == 0">近期无红包卡券</span>
-                <li class="coupon" v-for="(li,index) in list1" v-else-if="list1.length > 0">
-                  <div class="coupon-left">
-                    <span>￥{{li.usedAmount}}</span>
-                  </div>
-                  <div class="coupon-right">
-                    <!--优惠类型-->
-                    <span>{{li.usedTypeName}}</span>
-                    <span>{{formatTime(li.validStartTime) }} 至 {{ formatTime(li.validEndTime)}}</span>
-                  </div>
-                </li>
-              </ul>
-              <!--<ul>
-                <li class="coupon">
-                  <div>
-                    <span v-if="list1.length == 0">没有红包+{{message1}}</span>
-                  </div>
-                </li>
-              </ul>-->
-            </div>
+    <el-row type="flex" class="row-bg" justify="right" style="margin-top: 10px">
+      <!--可用红包-->
+      <el-col :span="12">
+        <div style="margin-bottom: 30px">可用红包:{{this.count}}个</div>
+        <!--可用-->
+        <div class="container">
+          <div class="list">
+            <span>可使用:</span>
+            <ul>
+              <span v-if="total1 == 0">近期无红包卡券</span>
+              <li class="coupon" v-for="(li,index) in list1" v-else-if="list1.length > 0">
+                <div class="coupon-left">
+                  <span>￥{{li.usedAmount}}</span>
+                </div>
+                <div class="coupon-right">
+                  <!--优惠类型-->
+                  <span>{{li.usedTypeName}}</span>
+                  <span>{{formatTime(li.validStartTime) }} 至 {{ formatTime(li.validEndTime)}}</span>
+                </div>
+              </li>
+            </ul>
           </div>
-        </el-col>
-        <!--<el-divider direction="vertical"></el-divider>-->
-        <!--不可用-->
-        <el-col :span="12">
-          <div style="margin-bottom: 30px"></div>
-          <div class="container container_1">
-            <div class="list">
-              <span class="container_1">已使用/已过期:</span>
-              <ul>
-                <span v-if="total2 == 0">近期无红包卡券</span>
-                <!--<span v-if="list2.length > 0">-->
-                <li class="coupon" v-for="(li,index) in list2" v-else-if="list2.length > 0">
-                  <div class="coupon-left">
-                    <span>￥{{li.usedAmount}}</span>
-                  </div>
-                  <div class="coupon-right1">
-                    <!--优惠类型-->
-                    <span>{{li.usedTypeName}}</span>
-                    <span>{{formatTime(li.validStartTime) }} 至 {{ formatTime(li.validEndTime)}}</span>
-                  </div>
-                </li>
+        </div>
+      </el-col>
+      <!--<el-divider direction="vertical" style="width: 400px"></el-divider>-->
+      <!--不可用-->
+      <el-col :span="12">
+        <div style="margin-bottom: 30px"></div>
+        <div class="container container_1">
+          <div class="list">
+            <span class="container_1">已使用/已过期:</span>
+            <ul>
+              <span v-if="total2 == 0">近期无红包卡券</span>
+              <!--<span v-if="list2.length > 0">-->
+              <li class="coupon" v-for="(li,index) in list2" v-else-if="list2.length > 0">
+                <div class="coupon-left">
+                  <span>￥{{li.usedAmount}}</span>
+                </div>
+                <div class="coupon-right1">
+                  <!--优惠类型-->
+                  <span>{{li.usedTypeName}}</span>
+                  <span>{{formatTime(li.validStartTime) }} 至 {{ formatTime(li.validEndTime)}}</span>
+                </div>
+              </li>
 
-              </ul>
-              <!--查询为0-->
-              <!-- <ul>
-               <li class="coupon">
-                 <div>
-                   <span v-if="list2.length == 0" >没有红包+{{message2}}</span>
-                 </div>
-               </li>
-               </ul>-->
-            </div>
+            </ul>
           </div>
-        </el-col>
-      </div>
+        </div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -209,7 +192,6 @@
 
   .container_1 {
     margin-top: 20px;
-    margin-left: 20px;
   }
 
   ul {
@@ -231,7 +213,7 @@
     height: 60px;
     margin-bottom: .6rem;
     position: relative;
-    left: 20px;
+    left: 10px;
     margin-right: 300px;
     border-radius: .1rem;
     overflow: hidden;
@@ -265,6 +247,7 @@
     height: 50%;
     background: radial-gradient(circle at right bottom, #E9EEF3 .2rem, transparent .2rem, transparent .2rem)
   }
+
   /*有颜色*/
   .coupon-right {
     width: 50%;
@@ -296,6 +279,7 @@
     height: 50%;
     background: radial-gradient(circle at left bottom, #E9EEF3 .2rem, transparent .2rem, transparent .2rem)
   }
+
   /*灰色*/
   .coupon-right1 {
     width: 50%;
@@ -328,7 +312,7 @@
     background: radial-gradient(circle at left bottom, #E9EEF3 .2rem, transparent .2rem, transparent .2rem)
   }
 
-  .coupon-left span{
+  .coupon-left span {
     margin-top: 15px;
     display: block;
     font-family: Arial;
@@ -337,6 +321,7 @@
     font-size: 30px;
     font-weight: 700;
   }
+
   .coupon-right span,
   .coupon-right1 span {
     display: block;

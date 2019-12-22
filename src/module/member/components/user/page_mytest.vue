@@ -126,13 +126,7 @@
     created() { // vm实例的data和methods初始化完毕后执行，发ajax要提前
       /*取出路由中的参数,赋值给数据对象*/
       this.params.userId = utilApi.getActiveUser().userid;//activeUser.userid;
-      //获取cwarn 内的积分值
-      /*  userApi.warn_get(this.params.user_id).then((res) => {
-          console.log(res);
-          if(res){
-            this.warnFrom = res;
-          }
-        });*/
+
 
     },
 

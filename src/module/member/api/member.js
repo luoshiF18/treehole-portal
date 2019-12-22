@@ -138,5 +138,22 @@ export const page_template =() =>{
 }
 
 
+//查询用户预约订单
+export const order_list =(page,size,params) =>{
+  ///将params对象数据拼装成key/value串
+  let queryString = querystring.stringify(params);
+  //请求服务端的页面查询接口
+  return http.requestQuickGet(apiUrl+'/appointment/order/findlistbyid/'+ page + '/' + size + '?' +queryString);
+}
+//取消预约订单
+export const order_cancel= (id) =>{
+  return http.requestPut(apiUrl+'/appointment/order/cancel/'+id);
+}
+//删除预约订单
+export const order_del= (id) =>{
+  return http.requestDelete(apiUrl+'/appointment/order/del/'+id);
+}
+
+
 
 

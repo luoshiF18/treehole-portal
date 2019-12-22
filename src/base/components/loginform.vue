@@ -53,7 +53,6 @@
               userimg: ''
             },
             logined:false,
-            returnUrl:''
           }
         },
         methods: {

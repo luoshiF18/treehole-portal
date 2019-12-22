@@ -35,6 +35,8 @@
             </el-menu-item-group>
           </el-submenu>
 
+          <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
+
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>
             <el-button v-if="logined == true" @click="logout" type="text">退出</el-button>
@@ -336,7 +338,6 @@
   .additional-features li.active p {
     color: #fff;
   }
-
 
   .dv-index {
     .el-header {

@@ -16,7 +16,6 @@
           :default-active="$route.path"
           class="el-menu-demo"
           router
-          background-color="#FFFFF0"
           text-color="#191970"
           mode="horizontal">
 
@@ -24,12 +23,12 @@
             <img src="../../../assets/logo.jpg" alt="">
           </div>
 
-          <el-menu-item index="/index">首页</el-menu-item>
+          <el-menu-item index="/index" style="font-size: 18px">首页</el-menu-item>
 
-          <el-menu-item index="/scale/page/scale_list">心理测试</el-menu-item>
+          <el-menu-item index="/scale/page/scale_list" style="font-size: 18px">心理测试</el-menu-item>
 
           <el-submenu index="8">
-            <template slot="title"><span>测试</span></template>
+            <template slot="title"><span style="font-size: 18px">测试</span></template>
             <el-menu-item-group>
               <el-menu-item index="/test/page/first">个人档案</el-menu-item>
               <el-menu-item index="/test/page/second">用户档案</el-menu-item>
@@ -284,6 +283,9 @@
     color: #fff;
     text-align: center;
   }
+  .el-button {
+    margin-left: 0 !important;
+  }
 
   .additional-features li .additional-icon {
     margin: 0 auto 4px;
@@ -359,7 +361,6 @@
     }
 
     .el-main {
-      background-color: #E9EEF3;
       color: #333;
     }
 

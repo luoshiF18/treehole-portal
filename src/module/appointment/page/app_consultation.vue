@@ -55,9 +55,9 @@
     },
 
     created: function () {
-      this.form = this.$route.query.form.
+      this.form = this.$route.query.form
 
-      //出用户姓名
+      //取出用户姓名
       this.userName = utilApi.getActiveUser().username
     },
     mounted(){

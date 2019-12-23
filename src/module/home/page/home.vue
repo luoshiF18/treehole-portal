@@ -35,7 +35,7 @@
             </el-menu-item-group>
           </el-submenu>
 
-          <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
+          <el-menu-item index="/psychologist_list" style="font-size: 18px">心理咨询</el-menu-item>
 
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>
@@ -47,7 +47,7 @@
               注册
             </el-button>
             <el-button @click="system" type="text">后台管理入口</el-button>
-            <el-button @click="usercenter" type="text">用户中心</el-button>
+            <el-button @click="usercenter" v-if="logined == true" type="text">用户中心</el-button>
           </div>
 
 

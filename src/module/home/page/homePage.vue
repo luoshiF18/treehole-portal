@@ -367,6 +367,126 @@
         </div>
       </div>
     </div>
+    <div class="container">
+      <div class="xinli-xuyuan">
+        <div class="main-title">
+          <a target="_blank" class="common-a" href="https://m.xinli001.com/lesson/ttt?source=pc-home">
+            <span class="xinli-answer">活动发现</span>
+          </a>
+          <span class="sub-title">人人都能学的心理学</span>
+          <p class="send-content my-content">
+            <a target="_blank" class="common-a" href="https://m.xinli001.com/lesson/userCenter">
+              <span class="yxl-icon yxl-font-听课程"></span>
+              <span class="margin-icon">我的课程</span>
+            </a>
+          </p>
+          <p class="send-content zixun-content">
+            <a target="_blank" class="common-a" href="https://pro.xinli001.com/lesson/proIndex">
+              <span class="zixun-icon"></span>
+              <span class="margin-icon">咨询师课程</span>
+            </a>
+          </p>
+
+        </div>
+        <div class="content" style="position: relative;">
+          <div class="swiper-container xili-xueyuan-new swiper-container-horizontal">
+            <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+              <div class="swiper-slide swiper-slide-active" style="width: 980px; margin-right: 20px;">
+                <div class="top-fm slide-top">
+                  <div class="top-one top-margin">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/308?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190601/b413701eaceddac63f70b63a6beee391.jpg?x-oss-process=image/quality,Q_80')"></div>
+                      <div class="info">
+                        <p class="info-title" title="李松蔚认知思维16讲">李松蔚认知思维16讲</p>
+                        <p class="teacher-info">教师介绍：李松蔚</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="top-one ">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/248?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190912/2740b50af2b1f314255105f672712430.jpg?x-oss-process=image/quality,Q_80')"></div>
+                      <div class="info">
+                        <p class="info-title" title="北大张昕：人人都用得上的心理学课">北大张昕：人人都用得上的心理学课</p>
+                        <p class="teacher-info">教师介绍：张昕</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="bottom-fm slide-bottom">
+                  <div class="bottom-one bottom-margin">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/293?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190601/6c82181baf8ede9744a7cb8ddf5461c6.jpg!300')"></div>
+                      <div class="info">
+                        <p class="info-title" title="爱人先爱己，女性自爱力36堂心理提升课">爱人先爱己，女性自爱力36堂心理提升课</p>
+                        <p class="teacher-info">教师介绍：周梵</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="bottom-one bottom-margin">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/293?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190601/6c82181baf8ede9744a7cb8ddf5461c6.jpg!300')"></div>
+                      <div class="info">
+                        <p class="info-title" title="爱人先爱己，女性自爱力36堂心理提升课">爱人先爱己，女性自爱力36堂心理提升课</p>
+                        <p class="teacher-info">教师介绍：周梵</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="bottom-one bottom-margin">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/293?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190601/6c82181baf8ede9744a7cb8ddf5461c6.jpg!300')"></div>
+                      <div class="info">
+                        <p class="info-title" title="爱人先爱己，女性自爱力36堂心理提升课">爱人先爱己，女性自爱力36堂心理提升课</p>
+                        <p class="teacher-info">教师介绍：周梵</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="bottom-one bottom-margin">
+                    <a target="_blank" class="common-a" href="//m.xinli001.com/lesson/293?source=pc-home&amp;tongji_sign=www-index->xktj">
+                      <div class="slide-top-img" style="background-image: url('https://ossimg.xinli001.com/20190601/6c82181baf8ede9744a7cb8ddf5461c6.jpg!300')"></div>
+                      <div class="info">
+                        <p class="info-title" title="爱人先爱己，女性自爱力36堂心理提升课">爱人先爱己，女性自爱力36堂心理提升课</p>
+                        <p class="teacher-info">教师介绍：周梵</p>
+                        <span class="pay">129元</span>
+                        <del>199元</del>
+                        <span class="class-info">课程介绍</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+          <div id="new-xueyuan-prev" class="swiper-button-prev swiper-button-prev-change swiper-button-disabled" tabindex="0" role="button" aria-label="Previous slide" aria-disabled="true"></div>
+          <div id="new-xueyuan-next" class="swiper-button-next swiper-button-next-change" tabindex="0" role="button" aria-label="Next slide" aria-disabled="false"></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <el-row class="el-row-5" :gutter="20">
+        <el-col :span="24">
+          <div class="el-row-1-dv-4">
+            <h1>活动发现</h1>
+            <InteractiveList></InteractiveList>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
     <div id="footer">
       <ul>
         <li><a href="javascript:;">首页</a> </li>
@@ -380,6 +500,7 @@
 </template>
 
 <script>
+    import InteractiveList from '../../marketing/page/InteractiveList';
   export default {
     name: "index",
       data() {
@@ -390,12 +511,20 @@
                   {src: require("../../../statics/image/2.jpg")},
                   {src: require("../../../statics/image/3.jpg")},
                   {src: require("../../../statics/image/4.jpg")},
-              ]
+              ],
+              components: {
+                  InteractiveList
+              }
           }
       },
   }
 </script>
 <style>
+  .el-row-5{
+    width: 80vw;
+    margin-bottom: 5vh;
+    margin-left: 8vw!important;
+  }
   .dv-homePage .el-row-1 {
     margin-bottom: 20px;
   }

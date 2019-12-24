@@ -33,7 +33,7 @@
                   <span>{{detailForm.address}}</span>
                 </el-form-item>
                 <el-form-item label="服务价格：">
-                  <span>{{detailForm.price}}</span>
+                  <span>{{detailForm.price}}</span>元/小时
                 </el-form-item>
               </el-form>
             </div>
@@ -92,7 +92,7 @@
         </el-col>
         <el-col :span="8">
           <el-form-item>
-            <el-button type="success" style="margin-left:51vw" @click="">立即预约</el-button>
+            <el-button type="success" style="margin-left:51vw" @click="appointment">立即预约</el-button>
           </el-form-item>
         </el-col>
       </el-row>
@@ -131,6 +131,11 @@
             region: this.$route.query.region,
             sex: this.$route.query.sex
           }
+        })
+      },
+      appointment(){
+        this.$router.push({
+          path: '/appointment/write/'+ this.detailForm.id ,
         })
       }
     },

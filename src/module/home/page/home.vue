@@ -37,6 +37,7 @@
           </el-submenu>
 
           <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
+          <el-menu-item index="/consultation">服务页面</el-menu-item>
 
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>

@@ -36,6 +36,7 @@
           </el-submenu>
 
           <el-menu-item index="/psychologist_list" style="font-size: 18px">心理咨询</el-menu-item>
+          <el-menu-item index="/scale/page/warnDetails" style="font-size: 18px">测试预警详情</el-menu-item>
 
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>

@@ -36,4 +36,20 @@ export const startTest1 = (scaleId, nextQuestionId, questionSort, optionId) => {
 export const getResult = (getScore) => {
   return http.requestPost(apiUrl + '/scale/select/result/', getScore);
 }
+//分页查询预警信息
+export const getAllwarns = (page,size) =>{
+  return http.requestQuickGet(apiUrl+'/warning/getWarning/'+page+'/'+size);
+}
+//添加一条干预表记录
+export const addIntervene = (intervene) => {
+  return http.requestPost(apiUrl + '/intervene/addRecord/', intervene)
+}
+//查询单个用户的干预记录
+export const findByPsy = () =>{
+  return http.requestQuickGet(apiUrl+'/intervene/findByPsy');
+}
+//新增预警消息
+export const addWarning = (warnMsg) => {
+  return http.requestPost(apiUrl + '/warning/addWarningByPsy/', warnMsg);
+}
 

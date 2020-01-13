@@ -33,7 +33,7 @@
                   <span>{{detailForm.address}}</span>
                 </el-form-item>
                 <el-form-item label="服务价格：">
-                  <span>{{detailForm.price}}</span>元/小时
+                  <span>{{detailForm.price}}</span>/小时
                 </el-form-item>
               </el-form>
             </div>

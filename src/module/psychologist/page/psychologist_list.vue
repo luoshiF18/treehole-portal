@@ -39,7 +39,7 @@
             <el-table-column prop="studio" label="工作室" width="170"></el-table-column>
             <el-table-column prop="praise_number" label="好评数" width="100"></el-table-column>
             <el-table-column prop="platform_year" label="从业年限" width="100"></el-table-column>
-            <el-table-column prop="price" label="收费:元/小时" width="150"></el-table-column>
+            <el-table-column prop="price" label="收费标准/小时" width="150"></el-table-column>
             <el-table-column label="操作" width="200">
               <template slot-scope="page">
                 <el-button size="small" type="success" @click="getDetail(page.row.id)">详情</el-button>

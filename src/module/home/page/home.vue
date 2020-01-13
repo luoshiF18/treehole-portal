@@ -16,7 +16,6 @@
           :default-active="$route.path"
           class="el-menu-demo"
           router
-          background-color="#FFFFF0"
           text-color="#191970"
           mode="horizontal">
 
@@ -24,31 +23,32 @@
             <img src="../../../assets/logo.jpg" alt="">
           </div>
 
-          <el-menu-item index="/index">首页</el-menu-item>
+          <el-menu-item index="/index" style="font-size: 18px">首页</el-menu-item>
 
-          <el-menu-item index="/scale/page/scale_list">心理测试</el-menu-item>
+          <el-menu-item index="/scale/page/scale_list" style="font-size: 18px">心理测试</el-menu-item>
 
           <el-submenu index="8">
-            <template slot="title"><span>测试</span></template>
+            <template slot="title"><span style="font-size: 18px">测试</span></template>
             <el-menu-item-group>
               <el-menu-item index="/test/page/first">个人档案</el-menu-item>
               <el-menu-item index="/test/page/second">用户档案</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
 
-          <el-menu-item index="/psychologist_list">心理咨询师</el-menu-item>
-          <el-menu-item index="/consultation">服务页面</el-menu-item>
+          <el-menu-item index="/psychologist_list" style="font-size: 18px">心理咨询</el-menu-item>
+          <el-menu-item index="/scale/page/warnDetails" style="font-size: 18px">测试预警详情</el-menu-item>
 
           <div class="dv-right">
             <span v-if="logined == true">欢迎:{{this.user.username}}</span>
             <el-button v-if="logined == true" @click="logout" type="text">退出</el-button>
             <el-button type="text" v-if="logined == false" v-on:click="showlogin">登录</el-button>
 
-            <el-button v-if="logined == false" type="text">
+            <el-button v-if="logined == false" type="text" v-on:click="showregister">
               <span style="color:#409EFF">|</span>
               注册
             </el-button>
             <el-button @click="system" type="text">后台管理入口</el-button>
+            <el-button @click="usercenter" v-if="logined == true" type="text">用户中心</el-button>
           </div>
 
 
@@ -92,6 +92,13 @@
       },
       system: function () {
         window.location = "http://ucenter.treehole.com/#/login"
+      },
+      showregister: function () {
+        this.$router.push('/member/register');
+      },
+      usercenter: function () {
+
+        this.$router.push('/member/user_center');
       },
 
       refresh_user: function () {
@@ -287,6 +294,9 @@
     color: #fff;
     text-align: center;
   }
+  .el-button {
+    margin-left: 0 !important;
+  }
 
   .additional-features li .additional-icon {
     margin: 0 auto 4px;
@@ -361,7 +371,6 @@
     }
 
     .el-main {
-      background-color: #E9EEF3;
       color: #333;
     }
 

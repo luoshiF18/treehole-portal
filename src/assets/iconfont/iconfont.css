@@ -1,0 +1,49 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1577013285567'); /* IE9 */
+  src: url('iconfont.eot?t=1577013285567#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAWsAAsAAAAACtAAAAVeAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDOAqIWIdHATYCJAMYCw4ABCAFhG0HUhtnCVGUTU6a7IckCaFIAUfhwIQ9nAQFAAAAAHAKACB4vvb7nbt73353kmgkmURN4k20dBJEhpIISaYTEomkknSHf898uXPSE6ec6OKg4qV1qsHp5mZfUNvJLiaAh8/pXodrfocRA3TjdA6FM3i7lmPgmOqidKNhF9iUsgMP9lPaTweqSOFf5GL+RTyb7EKhETl5PgSI0kQ8yHhlPRO4oHC1QN2uWMgFLikLWoMUwnpXsq8iRzgSNgfmEuDQ/b48ShUXMAQWvu3MsUIAiv/2N9me8hToNgCkdC5gchBYoBuAguyWetbZh6pup4mWlTrQCyAsXAaoMnGT//sQlW422bmIa3XRc/iHF2CwIA6uiQN0IhvATaMYELhJDCjchKReu4EJA9oMWu6ywRGuUwTIEgDyjRu66TWqmjQ+r6u7a5orA5u9XdBARpCXmyfczttBaj4zLReW7caxXvtXrqXW6Nfp1ndYrwHY7JISf2yOmbNqpqKLr8dHjbfY5nsQjaI7TH5g4d4AbP5NFkavRoyGTPjj+UFmKxsx2DiWSyDAdm/2RxbtEu66prtOX6WusPehbJfmwYubnHCQydxrvjMtD5btxbE++XprLmcvNjPpEmsAQa2dpivp+kjOgv6mK9OWHIH1SnIKmZeulT1aF1hYzALOxUtFP5fB2k/9LFRQm/FwVNsqvr723DV1my5tu63u/Knm7CVlK5W8xVx9pujNHEFZELQNobO29yA8/Trj+gDuqS3DROauQzjzjBiSWhxgzl7BHULQiTKu3uCPoFfNhGH9tgHUGh6ngPn/xgS7DRvstFI3Rk+w19mLQDkBXgI503wg7kD8hbgLc1JELnVTAtMi4jtYjkzHhI6ItMD6KQHHmsvF4lsyYVroXsZD78feexihiFtU6R9vQ9iRkLTZwtB3vkTwonDkf0la8T+fNnBgovPcZymLv56d2N6LvoY8I1IZ3oaIg+D/EIrVyjii/5UhHR1ImRBFeiguPrjM/cbLzEwldIqwWHnQ4w/DoVQIjRCHpusB35fahet7e0cld25NXi0QlOc1kWCyaqmnC4vyjxk3buZ9v63avZl5yZKq9eb+7uy8cOgPVcc8GGgBj/YpDWV5K3Qa8ngBAkPvuqdr2eD/zIpfZ0uvyQebZmwy2elnX814lVruVzmZA2ObmmKhWgpxMoxV4yqSM6C0ThDmFHarsnWEI9zksnsLkPBnSinOBla+utnTs3ATvdnUU26+ovcUXEwv2lggpqag4L65KUYoO5ubYYyKiGlqTq3W1ETE6CTxlu78hjW5/Q320O8A+YFP7xZ8eg/GAPh//rCD2GEAwF7U1477C/6onbUfyj22x7bxqV+Pk+gyqm/o/+qC/RHiV7MqAodpJB9daWvpZ3ygFf8PVKZybna6FNVI3LCStMI71jimDBAVdvh0FyDLPSpdoXUKhHBKOokaQhx3LVjCNANQod3EgBg9KrfSDQExShdVB8fIoWaPaAToZDIjCmk2Ew1JzomWNBeBCr1LDCjyluhIiz0xymyVO2aMVhGjY2rI1UIBzhuJi/mkgpB2LerrW6FwqIyrTsodhg3VGnEcT0lMzuaroAKqKXbQDBOmarUETqhJOV7JLgZlMhJXqkkJ5GsTRVqtMjcpiSh7o0Q+KQcoY9QgLi1IAIdnJBwxPpICYabWQnM/3woSGkqGS10zdsXPBqlpiJeOk0IiyS2AVRpFq7HH0qoxjFAqWkwRcIhJLUkOpxJdkExkSDjK8rUkID6tREQ9Ukq5JOFERFtN4v518kd5HhCFn8qJESsqgTgJoTuQGOp6A6IJWqi5aZJwlRQ7xTD7fa4CAAAA') format('woff2'),
+  url('iconfont.woff?t=1577013285567') format('woff'),
+  url('iconfont.ttf?t=1577013285567') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1577013285567#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 添加的新的样式*/
+[class^="aliIcon-"],
+[class*=" aliIcon-"]/*这里有空格*/
+{
+  font-family: "iconfont" !important;
+  font-size: 19px;  /*图标的大小*/
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 客服样式 */
+.aliIcon-kefu:before {
+  content: "\e603";
+  font-size: 43px;
+  color: #f2fffc;
+}
+
+.aliIcon-icon-test:before {
+  content: "\e633";
+}
+
+.aliIcon-icon-test1:before {
+  content: "\e634";
+}
+
+.aliIcon-nv:before {
+  content: "\e60c";
+}
+
+.aliIcon-nan:before {
+  content: "\e60d";
+}
+

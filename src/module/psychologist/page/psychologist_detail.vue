@@ -17,7 +17,7 @@
                 <el-form-item label="性别：">
                   <span>{{detailForm.sex}}</span>
                 </el-form-item>
-                <el-form-item label="联系方式：">
+                <el-form-item label="手机：">
                   <span>{{detailForm.phone}}</span>
                 </el-form-item>
               </el-form>
@@ -26,13 +26,13 @@
           <el-col :span="9">
             <div>
               <el-form label-width="90px">
-                <el-form-item label="资格认证：">
+                <el-form-item label="资质：">
                   <span>{{detailForm.qualification}}</span>
                 </el-form-item>
-                <el-form-item label="详细地址：">
+                <el-form-item label="地址：">
                   <span>{{detailForm.address}}</span>
                 </el-form-item>
-                <el-form-item label="服务价格：">
+                <el-form-item label="价格：">
                   <span>{{detailForm.price}}</span>/小时
                 </el-form-item>
               </el-form>

@@ -32,13 +32,13 @@
           </el-form>
           <!--数据列表-->
           <el-table :data="list" style="width: 100%" :row-class-name="tableRowClassName">
-            <el-table-column prop="name" label="姓名" width="100"></el-table-column>
-            <el-table-column prop="sex" label="性别" width="100"></el-table-column>
-            <el-table-column prop="age" label="年龄" width="100"></el-table-column>
+            <el-table-column prop="name" label="姓名" align="center"></el-table-column>
+            <el-table-column prop="sex" label="性别" align="center"></el-table-column>
+            <el-table-column prop="age" label="年龄" align="center"></el-table-column>
             <el-table-column prop="region" label="地区" width="170"></el-table-column>
             <el-table-column prop="studio" label="工作室" width="170"></el-table-column>
-            <el-table-column prop="praise_number" label="好评数" width="100"></el-table-column>
-            <el-table-column prop="platform_year" label="从业年限" width="100"></el-table-column>
+            <el-table-column prop="praise_number" label="好评数" align="center"></el-table-column>
+            <el-table-column prop="platform_year" label="从业年限" align="center"></el-table-column>
             <el-table-column prop="price" label="收费标准/小时" width="150"></el-table-column>
             <el-table-column label="操作" width="200">
               <template slot-scope="page">
@@ -136,9 +136,9 @@
           }
         })
       },
-      appointment:function(id){
+      appointment: function (id) {
         this.$router.push({
-          path: '/appointment/write/'+ id ,
+          path: '/appointment/write/' + id,
         })
       },
       tableRowClassName({row, rowIndex}) {

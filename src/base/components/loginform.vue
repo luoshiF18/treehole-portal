@@ -150,8 +150,14 @@
             loginApi.login(para).then((res) => {
                 this.editLoading = false;
                 if (res.success) {
-                  window.location.href = 'http://www.treehole.com/';
-
+                  //window.location.href = 'http://www.treehole.com/';
+                    let url = this.$route.query.url;
+                    if(url){
+                        this.$router.go(-1);
+                        //window.location.href = url;
+                    } else {
+                        window.location.href = 'http://www.treehole.com/';
+                    }
                 } else {
                   if (res.message) {
                     this.$message.error(res.message);

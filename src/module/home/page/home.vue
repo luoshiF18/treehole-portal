@@ -47,7 +47,15 @@
               <span style="color:#409EFF">|</span>
               注册
             </el-button>
-            <el-button @click="system" type="text">后台管理入口</el-button>
+
+
+            <!--wll-->
+            <el-badge :value="badge.value" :max="10" :hidden="badge.hidden" v-if="logined == true">
+              <el-button type="text" @click="toNoticePage">通知消息</el-button>
+            </el-badge>
+
+           <!--
+            <el-button @click="system" type="text">后台管理入口</el-button>-->
             <el-button @click="usercenter" v-if="logined == true" type="text">用户中心</el-button>
           </div>
 
@@ -70,6 +78,8 @@
 <script>
   import utils from '../../../common/utils'
   import * as loginApi from '../../../base/api/login'
+  import * as marketingApi from '../../marketing/api/marketing'
+  import  utilApi from '../../../common/utils'
   import jwtDecode from 'jwt-decode'
 
   export default {
@@ -83,6 +93,10 @@
           userpic: '',
         },
         logined: false,
+          badge:{
+            value: 0,
+            hidden: '',
+          }
       }
     },
     methods: {
@@ -127,10 +141,34 @@
                 this.user = activeUser;
                 utils.setUserSession("activeUser", JSON.stringify(activeUser))
               }
+
             }
+
+              //wll
+              marketingApi.getBadge(utilApi.getActiveUser().userid).then((res) => {
+                    this.badge.value = res;
+                    if(res>0){
+                        this.badge.hidden = false;
+                    } else {
+                        this.badge.hidden = true;
+                    }
+              }
+
+              )
           })
         }
       },
+
+        //wll
+        toNoticePage(){
+
+          marketingApi.setResolve(utilApi.getActiveUser().userid).then((res) => {
+          })
+            this.badge.value = 0;
+            this.badge.hidden = true;
+            this.$router.push("/notice/page");
+        },
+
       //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
       dateFormat(time) {
         var date = new Date(time);

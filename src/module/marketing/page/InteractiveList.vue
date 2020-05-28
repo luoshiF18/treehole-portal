@@ -53,7 +53,7 @@
 
         </el-col>
          <!--页面最多只展示两条数据，如果超过两条则显示更多 -->
-        <span v-if="size>2" style="margin-left: 20px"><el-button type="text" @click="toSeeMore">更多>>></el-button> </span>
+        <span v-if="size>2" style="margin-left: 20px"><el-button type="text" @click.native="toSeeMore">更多>>></el-button> </span>
        </el-row>
 
         <!--</div>-->

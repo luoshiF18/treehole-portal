@@ -20,6 +20,7 @@
 
 <script>
     import * as marketingApi from '../../api/marketing'
+    import  utilApi from '../../../../common/utils'
     import moment from 'moment'
     export default {
         name: "coupon_page",
@@ -33,7 +34,7 @@
                     usedAmount: '',
                     withSpecial: '',
                     typeName: '',
-                    usedType: '',
+                    usedTypeId: '',
                     validType: '',
                     validStartTime: '',
                     validEndTime: '',
@@ -49,34 +50,57 @@
                     usedAmount: '',
                     withSpecial: '',
                     typeName: '',
-                    usedType: '',
+                    usedTypeId: '',
                     validType: '',
                     validStartTime: '',
                     validEndTime: '',
                     validDays: '',
                     limitNum: '',
                     usedBy: '',
-                    userId: '1',
+                    userId: '',
                 },
 
             }
         },
         methods: {
             receive() {
-              marketingApi.receive_coupon(this.userCouponRequest).then((res)=>{
-                  if(res.success){
-                      this.$message.success("已领取")
-                  } else if(res.message){
-                      this.$message.error(res.message)
-                  } else {
-                      this.$message.error("领取失败")
-                  }
-              })
+                //为什么会是undefined不是''
+                if(this.userCouponRequest.userId == undefined || this.userCouponRequest.userId == ''){
+                    this.$message.error("请登录");
+                    this.$router.push({
+                        path: '/base/components/loginform', query: {
+                            url: this.$route.params//当前页面的地址
+                        }
+
+                    });
+                }else{
+                    marketingApi.receive_coupon(this.userCouponRequest).then((res)=>{
+                        if(res.success){
+                            this.$message.success("已领取")
+                        } else if(res.message){
+                            this.$message.error(res.message)
+                        } else {
+                            this.$message.error("领取失败")
+                        }
+                    })
+                }
+
             },
             getCouponDetail() {
+
                 marketingApi.coupon_cdetail(this.couponId).then((res) => {
-                    this.couponBo = res;
-                    this.userCouponRequest = this.couponBo;
+                        if(res == ''){
+                            this.$message.error("无优惠券")
+                        }
+                        this.couponBo = res;
+                        this.userCouponRequest = this.couponBo;
+                        if(utilApi.getActiveUser() != undefined){
+                            this.userCouponRequest["userId"] = utilApi.getActiveUser().userid;
+                        }
+
+
+
+
                    /* title: '',
                         withAmount:'',
                         usedAmount: '',
@@ -89,8 +113,13 @@
                         validDays: '',
                         limitNum: '',
                         usedBy: '',*/
-                    this.userCouponRequest["userId"] = "zaici";
+
                 })
+
+                if(localStorage.getItem('oldUrl').startsWith("/base/components/loginform")){
+                    window.location.reload()
+                }
+
             },
             formatTime(time) {
                 if(time == null){
@@ -103,11 +132,19 @@
         },
         created() {
             //取出路由中的参数,赋值给数据对象
+
             this.couponId = this.$route.query.id;
 
         },
+        beforeRouteEnter(to, from, next) {
+            localStorage.setItem('oldUrl', from.fullPath);
+            //console.log(from.fullPath)
+            next();
+        },
         mounted() {
+
             this.getCouponDetail();
+
         }
     }
 </script>
